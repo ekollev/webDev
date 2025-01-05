@@ -1,0 +1,326 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}.date{
+    height: 8%;
+    width: 30%;
+    margin-right: 6%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    align-items: end;
+}.date, h1{
+    font-family: 'Montserrat';
+}
+.main{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    gap: 1%;
+}.leftSection{
+    font-size: 1rem;
+    height: 50%;
+    min-width: 20%;
+    background-color: white;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    border: solid 2px black;
+    border-radius: 5%;
+    padding: 2%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.leftItems{
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: black;
+    padding: 4%;
+    padding-left: 8%;
+    border-radius: 16px;
+}
+.leftBtn{
+    font-size: 1rem;
+    display: flex;
+    padding: 5%;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    background-color: #D2D86E;
+    color: white;
+    border: none;
+    height: 15%;
+    border-radius: 16px;
+    padding-left: 8%;
+}
+.rightItems{
+    font-family: 'Kalam';
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+    font-size: 1.3rem;
+    background-color: #EFEFEF;
+    padding: 1%;
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+.checkText, .rightBtn{
+    display: flex;
+    align-items: center;   
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    margin-right: 10px;
+}
+.noteText{
+   max-width: 80%;
+}
+input[type="checkbox"]{
+    appearance: none;
+    height: 100%;
+    width: 100%;
+    background-color: #d5d5d5;
+    border-radius: 0.5em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    
+}
+input[type="checkbox"]::after{
+    font-family: "Font Awesome 6 Free";
+    content: "\f00c";
+    font-weight: 900;
+    font-size: 2em;
+    color: white;
+    display: none;
+}
+input[type="checkbox"]:checked{
+    background-color: #D2D86E;
+}
+input[type="checkbox"]:checked::after{
+    display: block;
+}
+
+.rightBtn{
+    height: 60%;
+    min-width: 10%;
+    gap: 10%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.edit, .delete{
+    width: 30px;
+    height: 30px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid black 3.5px;
+    cursor: pointer;
+    
+}
+.edit > svg, .delete > svg{
+    fill: black;
+}
+.rightSection{
+    max-width: 60%;
+    max-height: 100%;
+    min-width: 60%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    overflow: hidden;
+    border: solid black 2px;
+    border-radius: 1.5%;
+    color: black;
+    padding: 2%;
+}.items{
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+.items::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 20px;
+}
+
+.items::-webkit-scrollbar-thumb{
+    background-color: #d4d4d4;
+    border-radius: 16px;
+}
+.items::-webkit-scrollbar-track{
+    background-color: white;
+    height: 10px;
+    border-radius: 16px;
+}
+.bottomContainer{
+    display: flex;
+    justify-content: flex-start;
+    width: 80px;
+    min-height: 80px;
+    background-color: #D2D86E;
+    border-radius: 60px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    transition: ease 0.7s;
+    overflow: hidden;
+}.bottomContainer.active{
+    width: 80%; 
+}
+.addItem{ 
+    width: 80px;
+    height: 80px;
+    border: none;
+    border-radius: 50%;
+    background-color: #D2D86E;
+    transition: ease 0.5s;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+}.addItem > svg{
+    transition: ease 0.7s;
+}
+.addItem.clicked{
+   transition: ease 0.7s;
+}
+.addItem.clicked > svg{
+    transition: ease 0.7s;
+    transform: rotate(45deg);
+}
+.inputField{
+    width: 100%;
+    transition: ease 0.5s;
+    display: flex;
+    flex-direction: row;
+    background-color: #D2D86E;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.input{
+    width: calc(100% - 80px);
+    height: 80px;
+    background-color: #D2D86E;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    
+    
+}
+.input > textarea.input{
+    width: 100%;
+    height: 80%;
+    resize: none;
+    display: flex;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    transition: 1s;
+    padding-top: 2.5%;
+    padding-left: 2.5%;
+   
+}.input > textarea::placeholder{
+    opacity: 0;
+    transition: 1s;
+
+   
+}.input.active > textarea::placeholder{
+    opacity: 1;
+    transition: 1s;
+    
+}
+textarea::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 20px;
+}
+
+textarea::-webkit-scrollbar-thumb{
+    background-color: #acacac;
+    border-radius: 16px;
+}textarea::-webkit-scrollbar-track{
+    background-color: white;
+    height: 10px;
+    border-radius: 16px;
+}textarea::selection{
+    background-color:#acacac;
+}   
+.input.active > textarea.input{
+    overflow: auto;
+    white-space: normal;
+    opacity: 1;
+    transition: 1s;
+}
+
+.sendTodo{
+    width: 80px;
+    height: 80px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    background-color: #D2D86E;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.newItem{
+    width: 400px;
+    min-height: 80px;
+    background-color: black;
+    display: flex;
+    color: black;
+}
+
+.rightItemsInput{
+    width: 500px;
+    border: none;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    outline-color: rgb(70, 70, 70);
+    resize: none;
+    
+}
+.editInput{
+    display: none;
+}

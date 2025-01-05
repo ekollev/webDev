@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-list</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Montserrat:wght@200&display=swap" rel="stylesheet">
+  </head>
+<body>
+    <div class="date"><h1><%= date %></h1></div>
+    <div class="main">
+      <div class="leftSection">
+        <ul class="sections">
+          <li class="leftItems">personal<span>></span></li>
+          <li class="leftItems">work <span>></span></li>
+        </ul>
+        <button class="leftBtn">New section <span>+</span></button>
+      </div>
+      <div class="rightSection">
+        <ul class="items">
+          
+        </ul>
+        <div class="bottomContainer">
+        
+        <button class="addItem"><svg class="svgBottom" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></button>
+        <div class="inputField"><div class="input" ><textarea rows="1" cols="1" class="input textArea" placeholder="Enter a to do"  ></textarea></div><button class="sendTodo"><svg class="svgBottom" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg></button></div> 
+        
+      </div>
+      
+        
+      </div>
+    </div>
+    <script src="/js/objects.js"></script>
+</body>
+</html>
