@@ -78,26 +78,32 @@ document.addEventListener("DOMContentLoaded", function() {
         const paragraph = list.querySelector(".text");
         const textDiv = list.querySelector(".noteText");
         const input = list.querySelector(".editInput");
+        let listID = list.classList.toString();
+        let editID = listID.charAt(listID.length-1);
         const paragraphStyles = window.getComputedStyle(textDiv);
-        input.classList.add("rightItems", "rightItemsInput", "editField");
+        input.classList.add("rightItems", "rightItemsInput", "editField", ("editField-" + editID));
         input.style.height = paragraphStyles.height;
         input.value = paragraph.textContent;
         paragraph.style.display = 'none'; 
-        input.style.display = 'flex';   
+        input.style.display = 'flex';
+
     }
         document.querySelector(".editField").addEventListener("keydown", function (e){
         let key = e.key;
         
         if (key === "Enter"){
             e.preventDefault();
-            let elementID = clickedElement.closest("li");
+            console.log(editID);
+            
             //try to trim the output here /\ and get the ID of the element so we can assign it to the elements below
             //so that we can be able to edit each note instead of only the first.
             let editField = document.querySelector(".editInput");
-            let pElement = document.querySelector(".text")
-             pElement.textContent = editField.value;
-             editField.style.display = "none";
+            let pElement = document.querySelector(".text");
+            pElement.textContent = editField.value;
+            editField.style.display = "none";
             pElement.style.display = "block";
+
+            
         }
     })
     });
