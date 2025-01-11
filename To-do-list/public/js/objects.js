@@ -78,8 +78,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const paragraph = list.querySelector(".text");
         const textDiv = list.querySelector(".noteText");
         const input = list.querySelector(".editInput");
+        //mess with the IDs here, figure out a better way to assign the ID to the edited and the editing element.
         let listID = list.classList.toString();
         let editID = listID.charAt(listID.length-1);
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxMaybe we should move these down and assign the ID to both elements when we press Enter
         const paragraphStyles = window.getComputedStyle(textDiv);
         input.classList.add("rightItems", "rightItemsInput", "editField", ("editField-" + editID));
         input.style.height = paragraphStyles.height;
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (key === "Enter"){
             e.preventDefault();
+            //detect the class name of the element we pressed enter in(list) and assign the id to the edited and the editing elements.
             let editField = document.querySelector(".editField-" + editID);
             let pElement = document.querySelector(".text" + editID);
             pElement.textContent = editField.value;
