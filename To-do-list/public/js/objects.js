@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="wrapper"><input class="check, check${noteID}" type="checkbox"></div>
             <div class="noteText noteText${noteID}">
             <p class="text text${noteID}">${inputValue}</p>
-            <input class="editInput"/>
+            <input class="editInput editInput${noteID}"/>
             </div>
                 
             </div>
@@ -83,19 +83,19 @@ document.addEventListener("DOMContentLoaded", function() {
         let editID = listID.charAt(listID.length-1);
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxMaybe we should move these down and assign the ID to both elements when we press Enter
         const paragraphStyles = window.getComputedStyle(textDiv);
-        input.classList.add("rightItems", "rightItemsInput", "editField", ("editField-" + editID));
+        input.classList.add("rightItems", "rightItemsInput");
         input.style.height = paragraphStyles.height;
         input.value = paragraph.textContent;
         paragraph.style.display = 'none'; 
         input.style.display = 'flex';
-    document.querySelector(".editField").addEventListener("keydown", function (e){
+    input.addEventListener("keydown", function (e){
         let key = e.key;
         
         if (key === "Enter"){
             e.preventDefault();
-            //detect the class name of the element we pressed enter in(list) and assign the id to the edited and the editing elements.
-            let editField = document.querySelector(".editField-" + editID);
+            let editField = document.querySelector(".editInput" + editID);
             let pElement = document.querySelector(".text" + editID);
+            //detect the class name of the element we pressed enter in(list) and assign the id to the edited and the editing elements.
             pElement.textContent = editField.value;
             editField.style.display = "none";
             pElement.style.display = "block";
