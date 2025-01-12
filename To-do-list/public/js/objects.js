@@ -1,6 +1,5 @@
 // import { text } from "body-parser";
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const addItemButton = document.querySelector(".addItem");
     const inputElement = document.querySelector(".input");
