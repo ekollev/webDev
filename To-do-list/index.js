@@ -21,10 +21,10 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
   });
   //
-app.post('/addTodo', (req, res) =>  {
-  const todoText = req.body.text;
-  res.json({ text: todoText});
-});
+// app.post('/addTodo', (req, res) =>  {
+//   const todoText = req.body.text;
+//   res.json({ text: todoText});
+// });
 
 
 //
