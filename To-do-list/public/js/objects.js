@@ -4,8 +4,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const addItemButton = document.querySelector(".addItem");
     const inputElement = document.querySelector(".input");
-    const inputCont = document.querySelector(".inputField")
-    const bottomContainer = document.querySelector(".bottomContainer")
+    const inputCont = document.querySelector(".inputField");
+    const bottomContainer = document.querySelector(".bottomContainer");
     const sendToDoButton = document.querySelector(".sendTodo");
     let noteID = 0;
     
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (inputValue.trim() !== ""){
             let newLiItem = document.createElement("li");
             newLiItem.id = 'note-' + noteID;
-        let liBox = document.querySelector(".items")
+        let liBox = document.querySelector(".items");
         newLiItem.classList.add("rightItems", "rightItems" + noteID);
         
         newLiItem.innerHTML = `
