@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const inputCont = document.querySelector(".inputField")
     const bottomContainer = document.querySelector(".bottomContainer")
     const sendToDoButton = document.querySelector(".sendTodo");
-    let editInput = document.querySelector(".rightItemsInput");
     let noteID = 0;
     
     function addTodo(){
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     sendToDoButton.addEventListener("click", function(){
         addTodo();
-        //addToDo
      });
     addItemButton.addEventListener("click", function() {
             bottomContainer.classList.toggle("active");
@@ -78,33 +76,29 @@ document.addEventListener("DOMContentLoaded", function() {
         const paragraph = list.querySelector(".text");
         const textDiv = list.querySelector(".noteText");
         const input = list.querySelector(".editInput");
-        //mess with the IDs here, figure out a better way to assign the ID to the edited and the editing element.
         let listID = list.classList.toString();
         let editID = listID.charAt(listID.length-1);
-        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxMaybe we should move these down and assign the ID to both elements when we press Enter
         const paragraphStyles = window.getComputedStyle(textDiv);
         input.classList.add("rightItems", "rightItemsInput");
         input.style.height = paragraphStyles.height;
         input.value = paragraph.textContent;
         paragraph.style.display = 'none'; 
         input.style.display = 'flex';
+
     input.addEventListener("keydown", function (e){
+
         let key = e.key;
         
         if (key === "Enter"){
             e.preventDefault();
             let editField = document.querySelector(".editInput" + editID);
             let pElement = document.querySelector(".text" + editID);
-            //detect the class name of the element we pressed enter in(list) and assign the id to the edited and the editing elements.
             pElement.textContent = editField.value;
             editField.style.display = "none";
             pElement.style.display = "block";
-
-            
         }
     })
     }
-        
     });
 });
     
