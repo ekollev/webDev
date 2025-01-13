@@ -12,10 +12,13 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-    const date = printDate();
-    res.render("index.ejs", {date});  
-  });
+// app.get("/", (req, res) => {
+//     const date = printDate();
+//     res.render("index.ejs", {date});  
+//   });
+// app.get("/", (req, res) => {
+//     res.send()
+// });
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
