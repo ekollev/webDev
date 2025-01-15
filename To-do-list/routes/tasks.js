@@ -1,7 +1,13 @@
 import express from "express"
 import pool from "../db/db.js"
+import {printDate} from "../public/js/date.js"
 
 const router = express.Router();
+
+router.get("/", (req, res) => {
+  const date = printDate();
+  res.render("index.ejs", {date});  
+});
 
 router.get("/tasks", async (req, res) => {
     try {

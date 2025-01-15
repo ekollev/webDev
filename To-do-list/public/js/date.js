@@ -11,4 +11,4 @@ function printDate(){
      
     }  
   
-    export {printDate};
+    export { printDate };
