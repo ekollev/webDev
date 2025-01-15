@@ -131,26 +131,31 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
-      document.querySelector(".items").addEventListener("click", (event) => {
+      document.querySelector(".items").addEventListener("click", async (event) => {
       const clickedElement = event.target;
 
       if(clickedElement.closest("li")){
         const itemToRemove = clickedElement.closest("li");
-        const IDitemToRemove = itemToRemove.id;
+        let IDitemToRemove = itemToRemove.id;
+        console.log(IDitemToRemove);
+        
         if (clickedElement.classList && clickedElement.classList.contains("deleteBtn")) {
             try{
-                const response = fetch(`/tasks/${IDitemToRemove}`, {
+                IDitemToRemove = IDitemToRemove.replace("note-", "");
+                const response = await fetch(`/tasks/${IDitemToRemove}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ task: itemToRemove }),
                 });
+                if(!response.ok){
+                throw new Error("Error deleting the task.")
+                }
+              itemToRemove.remove();
             }catch(error){
                 console.error("Error deleting task:", error)
                 alert("Error: Could not delete task.")
             }   
-        clickedElement.closest("li").remove();
       }
     };
 
