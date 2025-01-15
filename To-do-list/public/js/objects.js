@@ -136,7 +136,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if(clickedElement.closest("li")){
         const itemToRemove = clickedElement.closest("li");
+        const IDitemToRemove = itemToRemove.id;
         if (clickedElement.classList && clickedElement.classList.contains("deleteBtn")) {
+            try{
+                const response = fetch(`/tasks/${IDitemToRemove}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ task: itemToRemove }),
+                });
+            }catch(error){
+                console.error("Error deleting task:", error)
+                alert("Error: Could not delete task.")
+            }   
         clickedElement.closest("li").remove();
       }
     };
