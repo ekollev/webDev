@@ -63,15 +63,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     async function addTodo() {
+        console.log(activeSection);
+        
         let inputValue = textField.value;
         if (inputValue.trim() !== "") {
             try {
                 // Send the to-do to the server
-                const response = await fetch("/tasks", {
+                const response = await fetch(`/tasks/${activeSection}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
+
                     body: JSON.stringify({ task: inputValue }),
                 });
     
