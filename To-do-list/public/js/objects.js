@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     async function addTodo() {
-        console.log(activeSection);
         
         let inputValue = textField.value;
         if (inputValue.trim() !== "") {
@@ -77,11 +76,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     body: JSON.stringify({ task: inputValue }),
                 });
-    
+                console.log(response);
+                
                 if (response.ok) {
                     const result = await response.json();
                     console.log("To-do added successfully:", result);
-    
+                    if (!result.id || !result.task) {
+                        console.error("Incomplete data from backend:", result);
+                        return;
+                    }
+                    
                     // Preserve the styles and classList from the original function
                     let newLiItem = document.createElement("li");
                     newLiItem.id = `note-${result.id}`;
@@ -211,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             if(response.ok){
                 const updatedTask = await response.json();
+                
                 paragraph.textContent = updatedTask.task;
                 input.style.display = "none";
                 paragraph.style.display = "block";

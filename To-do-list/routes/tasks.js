@@ -18,6 +18,27 @@ router.get("/tasks", async (req, res) => {
       res.status(500).send("Internal server error");
     }
   });
+router.post("/tasks/:activeSection", async (req,res) =>{
+  const { task } = req.body;
+  const { activeSection } = req.params;
+
+  if(!activeSection || activeSection.trim() === ""){
+    return res.status(400).send("Active section cannot be empty.")
+  }
+  try{
+    const result = await pool.query("INSERT INTO tasks (task, active_section) VALUES ($1, $2) RETURNING *", [task, activeSection]);
+
+    const newTask = result.rows[0];
+
+    res.status(201).json(newTask)
+    
+  }
+  
+  catch(error){
+    console.error("Error saving active section:", error);
+    res.status(500).send("Internal Server Error.");
+  }
+});
 //   router.post("/tasks", async (req, res) => {
 //     const { task } = req.body;
 //     if (!task || task.trim() === "") {
@@ -33,7 +54,7 @@ router.get("/tasks", async (req, res) => {
 //         console.error("Error adding to-do:", error);
 //         res.status(500).send("Internal Server Error");
 //     }
-// });
+// }); 
 router.put("/tasks/:id", async (req, res) => {
   const { id } = req.params;
   const { task } = req.body;
@@ -54,22 +75,7 @@ router.put("/tasks/:id", async (req, res) => {
   }
 });
 
-router.post("/tasks/:activeSection", async (req,res) =>{
-  const { task } = req.body;
-  const { activeSection } = req.params;
-
-  if(!activeSection || activeSection.trim() === ""){
-    return res.status(400).send("Active section cannot be empty.")
-  }
-  try{
-    const result = await pool.query("INSERT INTO tasks (task, active_section) VALUES ($1, $2) RETURNING *", [task, activeSection]);
-    res.status(200).json( {message: "Active section updated successfully!"} );
-  }
-  catch(error){
-    console.error("Error saving active section:", error);
-    res.status(500).send("Internal Server Error.");
-  }
-});//router.post.active_section.ends.
+//router.post.active_section.ends. check this thing also
 
 router.delete("/tasks/:id", async(req, res) => {
   const { id } = req.params;
