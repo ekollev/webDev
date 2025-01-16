@@ -82,8 +82,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Preserve the styles and classList from the original function
                     let newLiItem = document.createElement("li");
                     newLiItem.id = `note-${result.id}`;
+                    newLiItem.setAttribute("data-active-section", activeSection);
                     newLiItem.classList.add("rightItems", `rightItems`); // Add your classes
-    
+                    
                     newLiItem.innerHTML = `
                         <div class="checkText">
                             <div class="wrapper">
