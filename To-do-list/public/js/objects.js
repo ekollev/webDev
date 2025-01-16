@@ -5,6 +5,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const inputCont = document.querySelector(".inputField");
     const bottomContainer = document.querySelector(".bottomContainer");
     const sendToDoButton = document.querySelector(".sendTodo");
+    let activeSection = "personal";
+
+    const sections = document.querySelectorAll(".sections li");
+        sections.forEach(section => {
+            section.addEventListener('click', () =>{
+                activeSection = section.getAttribute('data-section');
+                console.log(('Active section set to:', activeSection));
+                
+            });
+        });
+    
     
     async function fetchTasks() {
         try {
