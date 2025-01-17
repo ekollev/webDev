@@ -39,22 +39,7 @@ router.post("/tasks/:activeSection", async (req,res) =>{
     res.status(500).send("Internal Server Error.");
   }
 });
-//   router.post("/tasks", async (req, res) => {
-//     const { task } = req.body;
-//     if (!task || task.trim() === "") {
-//         return res.status(400).send("Task cannot be empty");
-//     }
-//     try {
-//         const result = await pool.query(
-//             "INSERT INTO tasks (task) VALUES ($1) RETURNING *",
-//             [task]
-//         );
-//         res.status(201).json(result.rows[0]); // Send back the created to-do
-//     } catch (error) {
-//         console.error("Error adding to-do:", error);
-//         res.status(500).send("Internal Server Error");
-//     }
-// }); 
+
 router.put("/tasks/:id", async (req, res) => {
   const { id } = req.params;
   const { task } = req.body;
