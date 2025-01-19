@@ -86,11 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         return;
                     }
                     
-                    // Preserve the styles and classList from the original function
                     let newLiItem = document.createElement("li");
                     newLiItem.id = `note-${result.id}`;
                     newLiItem.setAttribute("data-active-section", activeSection);
-                    newLiItem.classList.add("rightItems", `rightItems`); // Add your classes
+                    newLiItem.classList.add("rightItems", `rightItems`);
                     
                     newLiItem.innerHTML = `
                         <div class="checkText">
@@ -116,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>`;
                     
                     const liBox = document.querySelector(".items");
-                    liBox.appendChild(newLiItem); // Append the new item
-                    textField.value = ""; // Clear the input field
+                    liBox.appendChild(newLiItem); 
+                    textField.value = ""; 
                 } else {
                     console.error("Failed to add to-do:", response.statusText);
                 }
